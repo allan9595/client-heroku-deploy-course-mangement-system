@@ -1,12 +1,26 @@
 # Courses Mangment System
 **Courses Mangment System** 
 
+This app is a full stack Course Mangment system that allows users to create, update, delete, view courses. When create a course, markdown language is supported. 
+
+Mark Down feature proudly powered by [react-markdown](https://www.npmjs.com/package/react-markdown)
+
+You can visit the live version at [https://course-mangment-system.herokuapp.com](https://course-mangment-system.herokuapp.com/)
 
 
 ## How to run on the local machine
 
+git clone https://github.com/allan9595/sql_library_manager-treehouse.git
+
+npm install 
+
+npm run start
+
+Go to the localhost:3000
 
 ## Video Walkthrough
+
+<img src='https://github.com/allan9595/full_stack_app_with_react_and_a_rest_api-treehouse/blob/master/course-mangment-system.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -16,10 +30,8 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
     Copyright 2019 BOHAN ZHANG
 
 #### TODO Next
-
-
-
-
+- [ ] Add Search function for the list of course.
+- [ ] Add a file upload option allow user allow the course syllable .
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
