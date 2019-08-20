@@ -38,7 +38,7 @@ export class Provider extends Component {
         //encode the cred into base 64
         const encodedCredentials = btoa(`${emailAddress}:${password}`);
         //send the encoded to the server in a header
-        const user = await axios.get('https://course-mangment-system.herokuapp.com/api/users', {
+        const user = await axios.get('https://course-v1-api.herokuapp.com/api/users', {
             headers: {
                 "Authorization": `Basic ${encodedCredentials}`,
                 "Content-Type": "application/json; charset=utf-8"

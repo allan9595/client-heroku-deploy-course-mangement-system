@@ -19,7 +19,7 @@ class CreateCourse extends Component {
         const context = this.props.context;
 
         const axiosInstance = axios.create({
-            baseURL:`https://course-mangment-system.herokuapp.com`,
+            baseURL:`https://course-v1-api.herokuapp.com`,
             headers: {
                 "Authorization": `Basic ${context.encodedCredentials}`,
                 "Content-Type": "application/json"

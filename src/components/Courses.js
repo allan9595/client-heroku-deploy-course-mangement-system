@@ -11,7 +11,7 @@ class Course extends Component {
 
     componentDidMount(){
         //call the api to get the list of courses when rendering
-        axios.get('https://course-mangment-system.herokuapp.com/api/courses')
+        axios.get('https://course-v1-api.herokuapp.com/api/courses')
             .then((courses) => {
                 this.setState({
                     courses: courses.data

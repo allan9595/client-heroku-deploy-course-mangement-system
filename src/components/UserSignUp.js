@@ -51,7 +51,7 @@ class UserSignUp extends Component {
         confirmPassword
       } = this.state;
       const { from } = this.props.location.state || { from: { pathname: '/courses/create' } };
-      axios.post('https://course-mangment-system.herokuapp.com/api/users', {firstName, lastName, emailAddress,password, confirmPassword})
+      axios.post('https://course-v1-api.herokuapp.com/api/users', {firstName, lastName, emailAddress,password, confirmPassword})
         .then(() => {
           const context = this.props.context;
           context.actions.signIn(
