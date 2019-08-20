@@ -15,7 +15,7 @@ class UpdateCourse extends Component {
         const id = this.props.match.params.id;
 
         if(id !== 'create'){
-            axios.get(`http://localhost:5000/api/courses/${id}`)
+            axios.get(`https://course-mangment-system.herokuapp.com/api/courses/${id}`)
                 .then((course) => {console.log(course)
                     this.setState({
                         id:course.data.User.id,
@@ -45,7 +45,7 @@ class UpdateCourse extends Component {
         const context = this.props.context;
         const { title , description, estimatedTime, materialsNeeded } = this.state;
         const axiosInstance = axios.create({
-            baseURL:`http://localhost:5000`,
+            baseURL:`https://course-mangment-system.herokuapp.com`,
             headers: {
                 "Authorization": `Basic ${context.encodedCredentials}`,
                 "Content-Type": "application/json"

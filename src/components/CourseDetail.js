@@ -15,7 +15,7 @@ class CourseDetail extends Component {
         
         const id = this.props.match.params.id; 
         if(id !== 'create'){
-            axios.get(`http://localhost:5000/api/courses/${id}`)
+            axios.get(`https://course-mangment-system.herokuapp.com/api/courses/${id}`)
                 .then((course) => {
                     //set the course data to the state
                     this.setState({
@@ -35,7 +35,7 @@ class CourseDetail extends Component {
         const context = this.props.context; //get the context prop 
         //create a axios instance with configured values
         const axiosInstance = axios.create({
-            baseURL:`http://localhost:5000`,
+            baseURL:`https://course-mangment-system.herokuapp.com:5000`,
             headers: {
                 "Authorization": `Basic ${context.encodedCredentials}`,
                 "Content-Type": "application/json"
