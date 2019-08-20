@@ -8,16 +8,18 @@ export class Provider extends Component {
 
     state = {
         authUser: Cookies.getJSON('authUser') || "", //get the authenticatedUser if it exist 
-        encodedCredentials: Cookies.getJSON('encodedCredentials') || '' //get the encoded cred
+        encodedCredentials: Cookies.getJSON('encodedCredentials') || '', //get the encoded cred
     }
 
     render() {
         const authUser = this.state.authUser;
         const encodedCredentials = this.state.encodedCredentials;
+        const course = this.state.course;
         //define the value passed into provider, these are values and actions
         const value = {
             authUser,
             encodedCredentials,
+            course,
             actions: {
                 signIn: this.signIn,
                 signOut: this.signOut
@@ -36,7 +38,7 @@ export class Provider extends Component {
         //encode the cred into base 64
         const encodedCredentials = btoa(`${emailAddress}:${password}`);
         //send the encoded to the server in a header
-        const user = await axios.get('https://course-v1-api.herokuapp.com/api/users', {
+        const user = await axios.get('http://localhost:5000/api/users', {
             headers: {
                 "Authorization": `Basic ${encodedCredentials}`,
                 "Content-Type": "application/json; charset=utf-8"

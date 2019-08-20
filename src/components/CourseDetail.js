@@ -12,9 +12,10 @@ class CourseDetail extends Component {
 
     componentDidMount(){
         //when the app component start to render, call the api to get one course
+        
         const id = this.props.match.params.id; 
         if(id !== 'create'){
-            axios.get(`https://course-v1-api.herokuapp.com/api/courses/${id}`)
+            axios.get(`http://localhost:5000/api/courses/${id}`)
                 .then((course) => {
                     //set the course data to the state
                     this.setState({
@@ -26,6 +27,7 @@ class CourseDetail extends Component {
                     }
             })
         }
+        
     }
 
     deleteCourse = () => {
@@ -33,7 +35,7 @@ class CourseDetail extends Component {
         const context = this.props.context; //get the context prop 
         //create a axios instance with configured values
         const axiosInstance = axios.create({
-            baseURL:`https://course-v1-api.herokuapp.com`,
+            baseURL:`http://localhost:5000`,
             headers: {
                 "Authorization": `Basic ${context.encodedCredentials}`,
                 "Content-Type": "application/json"
@@ -83,16 +85,16 @@ class CourseDetail extends Component {
                                  >
                                      Delete Course
                                  </button>
-                                 <Link to={`/`} className="button button-secondary a1" >
-                                     Return to List
-                                 </Link>
                              </span>
                          </div>
                          </div>
                      </div>
                 ): null
+                
             }
-               
+               <Link to={`/`} className="button button-secondary a1" >
+                    Return to List
+                </Link>
                     <h4 className="course--label">Course</h4>
                     <h3 className="course--title">{this.state.course.title}</h3>
                     <p>By {this.state.course.User.firstName} {this.state.course.User.lastName}</p>

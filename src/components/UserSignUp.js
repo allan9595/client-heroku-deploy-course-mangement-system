@@ -50,8 +50,8 @@ class UserSignUp extends Component {
         password,
         confirmPassword
       } = this.state;
-      
-      axios.post('https://course-v1-api.herokuapp.com/api/users', {firstName, lastName, emailAddress,password, confirmPassword})
+      const { from } = this.props.location.state || { from: { pathname: '/courses/create' } };
+      axios.post('http://localhost:5000/api/users', {firstName, lastName, emailAddress,password, confirmPassword})
         .then(() => {
           const context = this.props.context;
           context.actions.signIn(
@@ -59,7 +59,7 @@ class UserSignUp extends Component {
               this.state.password
           ).then((user) => {
             if(user.status === 200){
-              this.props.history.push('/courses/create');
+              this.props.history.push(from);
             }
           })
         }).catch((e) => {
